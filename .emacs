@@ -5,6 +5,9 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
 (global-linum-mode t)
 (setq linum-format "%3d ")
 (setq column-number-mode t)
