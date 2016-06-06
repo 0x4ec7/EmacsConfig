@@ -85,7 +85,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/color-theme/themes/")
 (require 'color-theme)
-(set-face-attribute 'default nil :background "#000" :foreground "#DDD")
+;; (set-face-attribute 'default nil :background "#000" :foreground "#DDD")
 (load-theme 'material t)
 
 
@@ -154,10 +154,10 @@
 (require 'bind-key)
 (bind-key* "M-x" 'smex)
 (bind-key* "C-_" 'comment-or-uncomment-region-or-line)
-(bind-key* "C-c e" 'mc/edit-lines)
-(bind-key* "C-c n" 'mc/mark-next-like-this)
-(bind-key* "C-c p" 'mc/mark-previous-like-this)
-(bind-key* "C-c a" 'mc/mark-all-like-this)
+(bind-key* "C-c C-e" 'mc/edit-lines)
+(bind-key* "C-c C-n" 'mc/mark-next-like-this)
+(bind-key* "C-c C-p" 'mc/mark-previous-like-this)
+(bind-key* "C-c C-a" 'mc/mark-all-like-this)
 (bind-key* "C-z" 'undo-tree-undo)
 (bind-key* "C-x u" 'undo-tree-visualize)
 (bind-key* "C-k" 'kill-whole-line)
@@ -169,5 +169,5 @@
 (bind-key* "C-x <down>" 'windmove-down)
 (bind-key* "C-x <right>" 'windmove-right)
 (bind-key* "C-x <left>" 'windmove-left)
-(bind-key* "C-c C-t" 'neotree-toggle)
-(bind-key* "C-c C-p" 'neotree-ffip-project-dir)
+(bind-key* "C-c t" 'neotree-toggle)
+(bind-key* "C-c p" 'neotree-ffip-project-dir)
