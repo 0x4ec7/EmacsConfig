@@ -158,6 +158,7 @@
 (bind-key* "C-c C-n" 'mc/mark-next-like-this)
 (bind-key* "C-c C-p" 'mc/mark-previous-like-this)
 (bind-key* "C-c C-a" 'mc/mark-all-like-this)
+(bind-key* "C-c C-s" 'mc/mark-all-symbols-like-this)
 (bind-key* "C-z" 'undo-tree-undo)
 (bind-key* "C-x u" 'undo-tree-visualize)
 (bind-key* "C-k" 'kill-whole-line)
