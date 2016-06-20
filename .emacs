@@ -125,7 +125,11 @@
 ;; (global-git-gutter-mode +1)
 
 
-;; (add-to-list 'load-path "~/.emacs.d/plugin/")
+(add-to-list 'load-path "~/.emacs.d/plugins/")
+(require 'geeknote)
+(setq geeknote-command "python /usr/local/lib/python2.7/site-packages/geeknote-0.2a0-py2.7.egg/geeknote/geeknote.py")
+
+;; (add-to-list 'load-path "~/.emacs.d/plugins/")
 ;; (require 'python-django)
 
 
@@ -172,3 +176,9 @@
 (bind-key* "C-x <left>" 'windmove-left)
 (bind-key* "C-c t" 'neotree-toggle)
 (bind-key* "C-c p" 'neotree-ffip-project-dir)
+(bind-key* "C-c g c" 'geeknote-create)
+(bind-key* "C-c g e" 'geeknote-edit)
+(bind-key* "C-c g f" 'geeknote-find)
+(bind-key* "C-c g s" 'geeknote-show)
+(bind-key* "C-c g r" 'geeknote-remove)
+(bind-key* "C-c g m" 'geeknote-move)
