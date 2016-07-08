@@ -95,6 +95,7 @@
 
 (require 'smartparens-config)
 (add-hook 'python-mode-hook 'smartparens-mode)
+(add-hook 'go-mode-hook 'smartparens-mode)
 
 
 (require 'projectile)
@@ -119,6 +120,19 @@
 (setq whitespace-line-column 79)
 (setq whitespace-style '(face lines-tail))
 (add-hook 'python-mode-hook 'whitespace-mode)
+
+
+(defun go-mode-setup ()
+  (setq compile-command "go build -v && go test -v && go vet && ./go")
+  (define-key (current-local-map) "\C-c\C-c" 'compile)
+  (go-eldoc-setup)
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (local-set-key (kbd "M-.") 'godef-jump))
+(add-hook 'go-mode-hook 'go-mode-setup)
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
 
 
 ;; (require 'git-gutter)
@@ -159,10 +173,10 @@
 (bind-key* "M-x" 'smex)
 (bind-key* "C-_" 'comment-or-uncomment-region-or-line)
 (bind-key* "C-c C-e" 'mc/edit-lines)
-(bind-key* "C-c C-n" 'mc/mark-next-like-this)
-(bind-key* "C-c C-p" 'mc/mark-previous-like-this)
-(bind-key* "C-c C-a" 'mc/mark-all-like-this)
-(bind-key* "C-c C-s" 'mc/mark-all-symbols-like-this)
+(bind-key* "C-c C-n" 'mc/mark-next-like-this-symbol)
+(bind-key* "C-c C-p" 'mc/mark-previous-symbol-like-this)
+(bind-key* "C-c C-a" 'mc/mark-all-symbols-like-this)
+(bind-key* "C-c C-s" 'mc--mark-symbol-at-point)
 (bind-key* "C-z" 'undo-tree-undo)
 (bind-key* "C-x u" 'undo-tree-visualize)
 (bind-key* "C-k" 'kill-whole-line)
